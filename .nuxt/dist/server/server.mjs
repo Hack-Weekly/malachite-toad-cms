@@ -1,0 +1,1 @@
+export { default } from "file:///D:/dev/toadcms/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"
