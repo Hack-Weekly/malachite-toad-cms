@@ -34,7 +34,7 @@ yarn run preview
 
 ## ENV
 
-create a `.env` file in the root directory of the project and add copy the contents of `.env.example` into it.
+create a `.env` file in the root directory of the project and copy the contents of `.env.example` into it.
 NEVER COMMIT VALUES IN `.env` TO THE REPO.
 
 
