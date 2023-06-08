@@ -1,5 +1,5 @@
 
-import { defuFn } from 'D:/dev/toadcms/node_modules/defu/dist/defu.mjs'
+import { defuFn } from 'D:/Documents/Side projects/malachite-toad-cms/node_modules/defu/dist/defu.mjs'
 
 const inlineConfig = {}
 
