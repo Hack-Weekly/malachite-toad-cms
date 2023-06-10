@@ -17,7 +17,13 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
 
       ], 
-      link: []
+      link: [],
+      script: [
+        {
+          src: 'https://kit.fontawesome.com/f920441aaa.js',
+          crossorigin: 'anonymous'
+        }
+      ]
     },
   },
 
