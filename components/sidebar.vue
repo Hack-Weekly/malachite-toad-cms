@@ -5,42 +5,42 @@
         <ul class="flex flex-col justify-center items-start">
             <h1 class="text-lg max-sm:hidden"> Manage </h1>
             <li class="py-4">
-                <div class="py-4 px-2 flex justify-start gap-x-3 items-center text-lg text-sky-800 tracking-normal flash">
-                    <i class="fa-solid fa-house"></i>
-                        <NuxtLink to="/spaces" class="max-sm:hidden">
-                            Spaces
+                <div class="py-4 px-2 text-lg text-sky-800 tracking-normal flash">
+                        <NuxtLink to="/spaces" class="flex justify-start gap-x-3 items-center">
+                            <i class="fa-solid fa-house"></i>
+                            <p class="max-sm:hidden"> Spaces </p>
                         </NuxtLink>
                 </div>
                 <div class="sub_ul">
                     <ul class="">
-                        <li class="py-4 px-2 flex justify-start items-center gap-x-3 text-sky-800 flash">
-                            <i class="fa-solid fa-file-circle-plus"></i>
-                            <NuxtLink to="/content" class="max-sm:hidden">
-                                Content
+                        <li class="py-4 px-2 text-sky-800 flash">
+                            <NuxtLink to="/contents" class="flex justify-start gap-x-3 items-center">
+                                <i class="fa-solid fa-file-circle-plus"></i>
+                                <p class="max-sm:hidden"> Contents </p>
                             </NuxtLink>
                         </li>
-                        <li class="py-4 px-2 flex justify-start items-center gap-x-3 text-sky-800 flash">
-                            <i class="fa-solid fa-pen-nib"></i>
-                            <NuxtLink to="/all_apis" class="max-sm:hidden">
-                                API
+                        <li class="py-4 px-2 text-sky-800 flash">
+                            <NuxtLink to="/all_apis" class="flex justify-start gap-x-3 items-center">
+                                <i class="fa-solid fa-pen-nib"></i>
+                                <p class="max-sm:hidden"> API </p>
                             </NuxtLink>
                         </li>
-                        <li class="py-4 px-2 flex justify-start items-center gap-x-3 text-sky-800 flash">
-                            <i class="fa-solid fa-image"></i>
-                            <NuxtLink to="/files" class="max-sm:hidden">
-                                Files
+                        <li class="py-4 px-2 text-sky-800 flash">
+                            <NuxtLink to="/files" class="flex justify-start gap-x-3 items-center">
+                                <i class="fa-solid fa-image"></i>
+                                <p class="max-sm:hidden"> Files </p>
                             </NuxtLink>
                         </li>
-                        <li class="py-4 px-2 flex justify-start items-center gap-x-3 text-sky-800 flash">
-                            <i class="fa-solid fa-user-group"></i>
-                            <NuxtLink to="/user-roles" class="max-sm:hidden">
-                                User Roles
+                        <li class="py-4 px-2 text-sky-800 flash">
+                            <NuxtLink to="/user-roles" class="flex justify-start gap-x-3 items-center">
+                                <i class="fa-solid fa-user-group"></i>
+                                <p class="max-sm:hidden"> User Roles </p>
                             </NuxtLink>
                         </li>
-                        <li class="py-4 px-2 flex justify-start items-center gap-x-3 text-sky-800 flash">
-                            <i class="fa-solid fa-gear"></i>
-                            <NuxtLink to="/general-settings" class="max-sm:hidden">
-                                General Settings
+                        <li class="py-4 px-2 text-sky-800 flash">
+                            <NuxtLink to="/general-settings" class="flex justify-start gap-x-3 items-center">
+                                <i class="fa-solid fa-gear"></i>
+                                <p class="max-sm:hidden"> General Settings </p>
                             </NuxtLink>
                         </li>
                     </ul>
@@ -54,7 +54,9 @@
 
                 <div class="w-36 h-16 absolute right-0 translate-x-[164px] -translate-y-[20px] bg-white rounded shadow-md overflow-hidden max-sm:block hidden">
                     <div class="w-full h-8 text-sm flex justify-start items-center pl-4 hover:bg-gray-100 transition-all duration-500">
-                        <p> My Account </p>
+                        <NuxtLink to="/my-acoount">
+                            My Acoount
+                        </NuxtLink>
                     </div>
                     <div class="w-full h-8 text-sm flex justify-start items-center pl-4 hover:bg-gray-100 transition-all duration-500">
                         <p> Logout </p>
