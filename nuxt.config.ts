@@ -38,6 +38,8 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    mongodb_uri: process.env.MONGODB_URI,
+
     public: {
       apiBase: '/api', // can be overridden by NUXT_PUBLIC_API_BASE environment variable
     }
