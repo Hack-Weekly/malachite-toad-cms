@@ -16,7 +16,7 @@
             <sidebar />
 
             <!-- the page lives here -->
-            <div class="w-full h-full bg-gray-200 overflow-y-auto">
+            <div class="w-full h-full p-8 overflow-y-auto">
                 <slot />
             </div>
         </div>
