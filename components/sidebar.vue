@@ -1,8 +1,8 @@
 <template>
     
     <!-- the sidebar is here -->
-    <div class="sidebar relative min-w-[288px] w-72 h-full flex justify-center items-center bg-gray-100 max-sm:w-16 max-sm:min-w-[64px]" id="sidebar">
-        <ul class="flex flex-col justify-center items-start">
+    <div class="sidebar relative min-w-[288px] w-72 h-full flex justify-center items-start bg-gray-200 max-sm:w-16 max-sm:min-w-[64px]" id="sidebar">
+        <ul class="flex flex-col justify-center items-start mt-20">
             <h1 class="text-lg max-sm:hidden"> Manage </h1>
             <li class="py-4">
                 <div class="py-4 px-2 text-lg text-sky-800 tracking-normal flash">

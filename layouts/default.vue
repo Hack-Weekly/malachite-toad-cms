@@ -11,12 +11,12 @@
         <!-- the header end  here -->
 
         <!-- this div hold the sidebar in the left side and the page in the right side -->
-        <div class="w-full h-full flex">
+        <div class="w-full h-full flex overflow-hidden">
 
             <sidebar />
 
             <!-- the page lives here -->
-            <div class="w-full h-full bg-red-300 p-8">
+            <div class="w-full h-full p-8 overflow-y-auto">
                 <slot />
             </div>
         </div>
