@@ -3,11 +3,11 @@
     <div class="mini_nav w-full h-20 border-b-4 border-gray-100 flex justify-between items-center px-4">
         
         <button class="return_to_spaces_btn indepth_custome_shadow bg-sky-800 flex justify-center items-center gap-x-4 rounded py-3 px-6 text-lg text-white hover:bg-transparent hover:border-sky-800 hover:border hover:text-sky-800 transition-all duration-500 hover:shadow-none group">
-            <i class="fa-solid fa-angle-left"></i> <span class="text-white/30 group-hover:text-sky-400"> | </span> <p class=""> Spaces </p>
+            <i class="fa-solid fa-angle-left"></i> <span class="text-white/30 group-hover:text-sky-400"> | </span> <p class=""> Space </p>
         </button>
 
         <button class="return_to_spaces_btn indepth_custome_shadow bg-sky-800 flex justify-center items-center gap-x-4 rounded py-3 px-6 text-lg text-white hover:bg-transparent hover:border-sky-800 hover:border hover:text-sky-800 transition-all duration-500 hover:shadow-none group">
-            <i class="fa-solid fa-plus"></i> <span class="text-white/30 group-hover:text-sky-400"> | </span> <p class=""> Add Entry </p>
+            <i class="fa-solid fa-plus"></i> <span class="text-white/30 group-hover:text-sky-400"> | </span> <p class=""> Add Field </p>
         </button>
 
     </div>
