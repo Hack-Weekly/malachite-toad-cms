@@ -10,6 +10,7 @@
                     <button class="lg:text-md -mt-6 flex items-center justify-center rounded bg-sky-800 px-3 py-2 text-sm font-normal text-white hover:bg-sky-900 lg:px-6 lg:py-3">Create entry</button>
                 </div>
             </div>
+            
             <dialog id="settingsDialog" class="max-w-screen-xl">
                 <div class="bg-sky-800 flex justify-between items-center">
                     <h2 class="text-white text-2xl px-8 py-6">Settings</h2>
@@ -39,6 +40,7 @@
                     <button class="bg-red-500 text-sm font-semibold w-32 text-white py-2 px-3 rounded mt-3">Delete entry</button>
                 </div>
             </dialog>
+
             <div class="overflow-x-scroll lg:overflow-hidden">
                 <div class="mt-12 grid grid-cols-[repeat(5,minmax(max-content,1fr))] gap-4" v-for="n in 5" :key="n">
                     <div class="col-span-1">Home page</div>
@@ -62,6 +64,7 @@
         </div>
     </section>
 </template>
+
 <script lang="ts" setup>
     import { onMounted } from 'vue';
 
@@ -77,6 +80,7 @@
         dialogElement.close();
     }
 </script>
+
 <style scoped>
     dialog {
         padding-left: 0rem !important;
