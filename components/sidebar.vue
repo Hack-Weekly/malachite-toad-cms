@@ -87,6 +87,8 @@ const {
   data,
 } = useAuth()
 
+console.log(data.value)
+
 </script>
 
 <style>

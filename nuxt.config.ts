@@ -6,6 +6,16 @@ export default defineNuxtConfig({
     baseURL: 'http://localhost:3000',
     
   },
+  imports: {
+    dirs: [
+      // Scan top-level modules
+      'composables',
+      // ... or scan modules nested one level deep with a specific name and file extension
+      'composables/*/index.{ts,js,mjs,mts}',
+      // ... or scan all modules within given directory
+      'composables/**'
+    ]
+  },
   app: {
     head: {
       title: 'Toadcms',
@@ -28,6 +38,8 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    mongodb_uri: process.env.MONGODB_URI,
+
     public: {
       apiBase: '/api', // can be overridden by NUXT_PUBLIC_API_BASE environment variable
     }
