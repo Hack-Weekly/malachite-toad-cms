@@ -68,8 +68,6 @@
     import { onMounted } from 'vue';
     import { useForm, useField, Form, Field } from 'vee-validate';
 
-
-
     function openDialog(id: string) {
         const dialog = document.getElementById(id);
         const dialogElement = dialog as HTMLDialogElement;
@@ -89,8 +87,6 @@
         if(!value) return 'This field is required'
 
         if(value.length < 3) return 'This Field must be greater than 3 characters'
-
-
 
         return true
     };
