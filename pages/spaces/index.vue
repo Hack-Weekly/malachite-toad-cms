@@ -46,9 +46,9 @@
             <div class="overflow-x-scroll lg:overflow-hidden">
 
                 <div class="mt-12 grid grid-cols-[repeat(5,minmax(max-content,1fr))] gap-4" v-for="space in spaces.res" :key="space._id">
-                    <SpaceDialog :space="space.space" @deleted-space="deletedSpace"/>
+                    <SpaceDialog :space="space.space" @deleted-space="getSpaces"/>
                     <div class="col-span-1 flex flex-col -center">
-                        <span>{{ space.space.name }}</span>
+                        <NuxtLink :to="`/spaces/${space.space.slug}`">{{ space.space.name }}</NuxtLink>
                     </div>
 
                     <div class="col-span-1 flex -space-x-1.5 -center">

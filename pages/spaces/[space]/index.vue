@@ -67,6 +67,8 @@
 <script lang="ts" setup>
     import { onMounted } from 'vue';
     import { useForm, useField, Form, Field } from 'vee-validate';
+    import { toast } from 'vue3-toastify';
+    import 'vue3-toastify/dist/index.css';
 
     function openDialog(id: string) {
         const dialog = document.getElementById(id);
@@ -101,8 +103,23 @@
     const entrySlug = computed(() => entryName.value ? (entryName.value as string).toLowerCase().replace(/[^a-z-]/g, '-').replace(/^-+|-+$|-+(?=-)/g, '') : '');
 
 
-    const onSubmit = handleSubmit(values => {
-        
+    const onSubmit = handleSubmit(async (values) => {
+        const { data: response } = await useFetch('/api/space/create', {
+                onRequest({ request, options}) { 
+                    options.method = 'POST'
+                    options.headers = { "Content-type": "application/json" };
+                    options.body = JSON.stringify({ 
+                        name: entryName,
+                        slug: entrySlug.value
+                    })
+                },
+                onRequestError({ request, options, error }) {
+                    toast.error('Something went wrong. Please try again later')
+                },
+                async onResponse({ request, response, options }) {
+                    toast.success('Space created successfully')
+                },
+            })
     });
 
 
@@ -110,9 +127,6 @@
 
 <style scoped>
     dialog {
-        padding-left: 0rem !important;
-        padding-top: 0rem !important;
-        padding-right: 0rem !important;
         width: 50% !important;
         height: 50% !important;
     }
