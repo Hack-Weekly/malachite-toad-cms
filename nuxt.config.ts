@@ -32,6 +32,9 @@ export default defineNuxtConfig({
         {
           src: 'https://kit.fontawesome.com/f920441aaa.js',
           crossorigin: 'anonymous'
+        },
+        {
+          src: 'https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/datepicker.min.js'
         }
       ]
     },

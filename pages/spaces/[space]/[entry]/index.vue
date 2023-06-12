@@ -46,11 +46,11 @@
                 
                 <div class="pre_built_field w-2/4 py-2 max-lg:w-full border-gray-300 border-2 flex hover:bg-sky-800 hover:border-white/80 group transition-all duration-500 justify-start items-center pl-4 gap-x-4 bg-white rounded">
                     <div class="w-12 h-8 rounded bg-yellow-400 -center border-2 text-white border-yellow-300">
-                        <i class="fa-solid fa-n"></i>
+                        <i class="fa-solid fa-d"></i>
                     </div>
                     <div>
-                        <h1 class="text-sky-800 font-bold group-hover:text-white"> Number </h1>
-                        <p class="text-gray-400 text-sm group-hover:text-white transition-all duration-500"> Number (int, float) </p>
+                        <h1 class="text-sky-800 font-bold group-hover:text-white"> Date </h1>
+                        <p class="text-gray-400 text-sm group-hover:text-white transition-all duration-500"> A date picker </p>
                     </div>
                 </div>
 
@@ -116,7 +116,7 @@
                 </div>
 
                 <div class="element_preview bg-white w-full px-3 py-1.5 rounded flex justify-between border-2 border-gray-300 items-center text-base text-sky-900">
-                    <p> number <span class="text-gray-300"> 〜 </span> food-price  </p>
+                    <p> Date <span class="text-gray-300"> 〜 </span> Recipe-Date  </p>
                     <i class="fa-regular fa-trash-can flash"></i>
                 </div>
 
@@ -149,11 +149,9 @@
                     </div>
                 </div>
 
-                <div class="sm:col-span-2 mt-7">
-                    <label for="postal-code" class="block text-xl font-medium leading-6 text-sky-900"> Food Price ※ </label>
-                    <div class="mt-2"> 
-                    <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="block w-full rounded-md border-2 py-1.5 text-gray-900 border-gray-300 outline-none px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6" />
-                    </div>
+                <div class="mt-7">
+                    <label for="dateofbirth" class="block text-xl font-medium leading-6 text-sky-900"> Recipe Date </label>
+                    <input type="date" name="dateofbirth" id="dateofbirth" class="mt-3 block w-full rounded-md border-2 py-1.5 text-gray-900 border-gray-300 outline-none px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6">
                 </div>
 
                 <div class="col-span-full mt-7">
@@ -209,7 +207,35 @@
 <style scoped>
 
     .indepth_custome_shadow {
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+
+    [type="date"] {
+    background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+    }
+    [type="date"]::-webkit-inner-spin-button {
+    display: none;
+    }
+    [type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    }
+
+    /* custom styles */
+    body {
+    padding: 4em;
+    background: #e5e5e5;
+    font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    }
+    label {
+    display: block;
+    }
+    [type="date"] {
+    /* border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 3px 5px;
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+    width: 190px; */
     }
 
 </style>

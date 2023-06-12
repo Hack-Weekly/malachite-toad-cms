@@ -23,6 +23,7 @@
     "generate-api-key": "^1.0.2",
     "mongodb": "5.6",
     "next-auth": "4.21.1",
+    "tw-elements": "^1.0.0-beta2",
     "vee-validate": "^4.9.6"
   }
 }
