@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
-import SpaceInterface from 'types/api/SpaceInterface';
-import UserInterface from 'types/api/UserInterface';
-import SpaceUsersInterface from 'types/api/SpaceUsersInterface';
+import SpaceInterface from "../../../types/api/SpaceInterface";
+import UserInterface from "../../../types/api/UserInterface";
+import SpaceUsersInterface from "../../../types/api/SpaceUsersInterface";
 
 import { generateApiKey } from 'generate-api-key';
 

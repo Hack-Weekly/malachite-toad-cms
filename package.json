@@ -23,6 +23,7 @@
     "generate-api-key": "^1.0.2",
     "mongodb": "5.6",
     "next-auth": "4.21.1",
+    "realm": "^11.9.0",
     "vee-validate": "^4.9.6"
   }
 }
