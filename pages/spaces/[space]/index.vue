@@ -42,13 +42,15 @@
             <!-- Create entry dialog end -->
 
             <div class="overflow-x-scroll lg:overflow-hidden">
-                <div class="mt-12 grid grid-cols-[repeat(5,minmax(max-content,1fr))] gap-4" v-for="n in 5" :key="n">
+                <div class="mt-12 grid grid-cols-[repeat(5,minmax(max-content,1fr))] gap-4" v-for="entry in entry.res" :key="entry._id">
 
-                    <div class="col-span-1 -center">Home page</div>
+                    <div class="col-span-1 -center">
+                        <NuxtLink :to="`space/${entry.slug}`">{{ entry.name }}</NuxtLink>
+                    </div>
 
-                    <div class="col-span-1 -center">home-page</div>
+                    <div class="col-span-1 -center"> {{ entry.slug }} </div>
 
-                    <div class="col-span-1 -center">06-10-2023</div>
+                    <div class="col-span-1 -center"> {{ formattedDate(entry.updated_at) }} </div>
 
                     <div class="col-span-1 -center">
                         <span class="rounded-full bg-green-300 px-5 py-1 text-white">Published</span>
@@ -69,6 +71,35 @@
     import { useForm, useField, Form, Field } from 'vee-validate';
     import { toast } from 'vue3-toastify';
     import 'vue3-toastify/dist/index.css';
+
+    const route = useRoute()
+
+    const { data: response } =  await useFetch('/api/entry/get', {
+        onRequest({ request, options}) { 
+            options.method = 'POST'
+            options.headers = { "Content-type": "application/json" };
+            options.body = JSON.stringify({ space_slug: route.params.space })
+        }
+    })
+
+    let entry = ref(response.value)
+
+    console.log(entry)
+
+    const formattedDate = (date: string) => entry ? new Date(date).toISOString().substring(0, 10) : date;
+
+    /* Function that is emitted from the dialog component when a space is deleted */
+    // const getSpaces = async () => {
+    //     const { data: response } =  await useFetch('/api/space/get', {
+    //         onRequest({ request, options}) { 
+    //             options.method = 'POST'
+    //             options.headers = { "Content-type": "application/json" };
+    //             options.body = JSON.stringify({ email: data?.value?.user?.email })
+    //         }
+    //     })
+
+    //     spaces.value = response.value
+    // }
 
     function openDialog(id: string) {
         const dialog = document.getElementById(id);
@@ -102,14 +133,14 @@
     
     const entrySlug = computed(() => entryName.value ? (entryName.value as string).toLowerCase().replace(/[^a-z-]/g, '-').replace(/^-+|-+$|-+(?=-)/g, '') : '');
 
-
     const onSubmit = handleSubmit(async (values) => {
-        const { data: response } = await useFetch('/api/space/create', {
+        const { data: response } = await useFetch('/api/entry/create', {
                 onRequest({ request, options}) { 
                     options.method = 'POST'
                     options.headers = { "Content-type": "application/json" };
                     options.body = JSON.stringify({ 
-                        name: entryName,
+                        space_slug: route.params.space,
+                        name: entryName.value,
                         slug: entrySlug.value
                     })
                 },
@@ -120,6 +151,7 @@
                     toast.success('Space created successfully')
                 },
             })
+        console.log(response, route.params.space)
     });
 
 

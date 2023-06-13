@@ -20,7 +20,7 @@
 
             <div class="pre_built_fields_container w-full -center gap-2 py-2 max-lg:flex-wrap">
                 
-                <div class="pre_built_field w-2/4 max-lg:w-full py-2 border-gray-300 border-2 flex hover:bg-sky-800 hover:border-white/80 group transition-all duration-500 justify-start items-center pl-4 gap-x-4 bg-white rounded">
+                <div class="pre_built_field w-2/4 max-lg:w-full py-2 border-gray-300 border-2 flex hover:bg-sky-800 hover:border-white/80 group transition-all duration-500 justify-start items-center pl-4 gap-x-4 bg-white rounded" @click="change_field_type('text')">
                     <div class="w-12 h-8 rounded bg-red-400 -center border-2 text-white border-red-300">
                         <i class="fa-solid fa-t"></i>
                     </div>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
 
-                <div class="pre_built_field w-2/4 py-2 max-lg:w-full border-gray-300 border-2 flex hover:bg-sky-800 hover:border-white/80 group transition-all duration-500 justify-start items-center pl-4 gap-x-4 bg-white rounded">
+                <div class="pre_built_field w-2/4 py-2 max-lg:w-full border-gray-300 border-2 flex hover:bg-sky-800 hover:border-white/80 group transition-all duration-500 justify-start items-center pl-4 gap-x-4 bg-white rounded" @click="change_field_type('area')">
                     <div class="w-12 h-8 rounded bg-green-400 -center border-2 text-white border-green-300">
                         <i class="fa-solid fa-a"></i>
                     </div>
@@ -44,7 +44,7 @@
 
             <div class="pre_built_fields_container w-full -center gap-2 py-2 max-lg:flex-wrap">
                 
-                <div class="pre_built_field w-2/4 py-2 max-lg:w-full border-gray-300 border-2 flex hover:bg-sky-800 hover:border-white/80 group transition-all duration-500 justify-start items-center pl-4 gap-x-4 bg-white rounded">
+                <div class="pre_built_field w-2/4 py-2 max-lg:w-full border-gray-300 border-2 flex hover:bg-sky-800 hover:border-white/80 group transition-all duration-500 justify-start items-center pl-4 gap-x-4 bg-white rounded" @click="change_field_type('date')">
                     <div class="w-12 h-8 rounded bg-yellow-400 -center border-2 text-white border-yellow-300">
                         <i class="fa-solid fa-d"></i>
                     </div>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
 
-                <div class="pre_built_field w-2/4 py-2 max-lg:w-full border-gray-300 border-2 flex hover:bg-sky-800 hover:border-white/80 group transition-all duration-500 justify-start items-center pl-4 gap-x-4 bg-white rounded">
+                <div class="pre_built_field w-2/4 py-2 max-lg:w-full border-gray-300 border-2 flex hover:bg-sky-800 hover:border-white/80 group transition-all duration-500 justify-start items-center pl-4 gap-x-4 bg-white rounded" @click="change_field_type('media')">
                     <div class="w-12 h-8 rounded bg-blue-400 -center border-2 text-white border-blue-300">
                         <i class="fa-solid fa-m"></i>
                     </div>
@@ -130,7 +130,7 @@
         </div>
         <!-- the left side ends here -->
 
-        <!-- here is the righ side which hold the actuall fields-->
+        <!-- here is the right side which hold the actuall fields-->
         <div class="right-side w-full h-full px-16 max-lg:px-0">
 
             <div class="w-full h-full flex-col px-2">
@@ -190,6 +190,15 @@
 
 <script lang="ts" setup>
     import { onMounted } from 'vue';
+
+    const field_type = ref('')
+
+    const field_name = ref('')
+
+    async function change_field_type(type: string) {
+        field_type.value = type
+        console.log(field_type.value)
+    }
 
     function openDialog() {
         const dialog = document.getElementById('settingsDialog');

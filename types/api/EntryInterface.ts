@@ -3,7 +3,8 @@ export default interface EntryInterface {
     space_id: any;
     name: string;
     slug: string;
-    content: any[];
+    fields: any[];
+    contents: any[];
     created_at: Date;   
     updated_at: Date;
     published: boolean;
