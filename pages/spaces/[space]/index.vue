@@ -45,7 +45,7 @@
                 <div class="mt-12 grid grid-cols-[repeat(5,minmax(max-content,1fr))] gap-4" v-for="entry in entry.res" :key="entry._id">
 
                     <div class="col-span-1 -center">
-                        <NuxtLink :to="`space/${entry.slug}`">{{ entry.name }}</NuxtLink>
+                        <NuxtLink :to="`${$route.params.space}/${entry.slug}`">{{ entry.name }}</NuxtLink>
                     </div>
 
                     <div class="col-span-1 -center"> {{ entry.slug }} </div>
