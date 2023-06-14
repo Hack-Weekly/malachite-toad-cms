@@ -20,6 +20,8 @@
     "nuxt": "^3.5.2"
   },
   "dependencies": {
+    "generate-api-key": "^1.0.2",
+    "mongodb": "5.6",
     "next-auth": "4.21.1",
     "vee-validate": "^4.9.6"
   }
