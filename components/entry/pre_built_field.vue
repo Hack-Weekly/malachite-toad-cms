@@ -36,7 +36,6 @@
                 type_el.classList.toggle('pre_built_field_active');
                 field_type.value = type
             }
-            console.log(field_type.value, e)
         }
     }
 

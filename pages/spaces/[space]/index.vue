@@ -35,7 +35,6 @@
                             <input type="text" v-model="entrySlug" readonly  id="entrySlugInput" class="bg-gray-200 text-gray-500 rounded-lg outline-none ring-0 focus:ring-0 px-4 py-2.5 w-full block transition ease-linear delay-50 mt-1"/>
                         </div>
                         <button type="submit" class="bg-sky-800 text-sm font-semibold w-32 text-white py-2 px-3 rounded mt-3">Create</button>
-                        {{ values }}
                     </Form>
                 </div>
             </dialog>
@@ -57,7 +56,7 @@
                     </div>
 
                     <div class="col-span-1 flex justify-end">
-                        <button class="py-2 px-8 rounded bg-red-300 border-2 border-gray-200 text-white"> Remove </button>
+                        <button class="py-2 px-8 rounded bg-red-300 border-2 border-gray-200 text-white" @click="remove_entry(entry.slug)"> Remove </button>
                     </div>
 
                 </div>
@@ -89,17 +88,18 @@
     const formattedDate = (date: string) => entry ? new Date(date).toISOString().substring(0, 10) : date;
 
     /* Function that is emitted from the dialog component when a space is deleted */
-    // const getSpaces = async () => {
-    //     const { data: response } =  await useFetch('/api/space/get', {
-    //         onRequest({ request, options}) { 
-    //             options.method = 'POST'
-    //             options.headers = { "Content-type": "application/json" };
-    //             options.body = JSON.stringify({ email: data?.value?.user?.email })
-    //         }
-    //     })
+    const getSpaces = async () => {
+        const { data: response } =  await useFetch('/api/entry/get', {
+            onRequest({ request, options}) { 
+                options.method = 'POST'
+                options.headers = { "Content-type": "application/json" };
+                options.body = JSON.stringify({ space_slug: route.params.space })
+            }
+        })
 
-    //     spaces.value = response.value
-    // }
+        entry.value = response.value
+        console.log(entry.value)
+    }
 
     function openDialog(id: string) {
         const dialog = document.getElementById(id);
@@ -148,11 +148,28 @@
                     toast.error('Something went wrong. Please try again later')
                 },
                 async onResponse({ request, response, options }) {
-                    toast.success('Space created successfully')
+                    toast.success('Entry created successfully')
+                    getSpaces()
+                    closeDialog('createEntryDialog')
                 },
             })
         console.log(response, route.params.space)
     });
+
+    async function remove_entry(slug: any) {
+
+        const response = await $fetch('/api/entry/remove_entry', {
+            method: 'post',
+            body: {
+                entry_slug: slug,
+            }
+        })
+
+        getSpaces()
+        
+        console.log(response)
+        
+    }
 
 
 </script>

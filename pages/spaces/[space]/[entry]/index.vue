@@ -5,9 +5,11 @@
     <!-- here is the mine nav to control the navigation backward and forward :? not that this only contain two btn -->
     <div class="mini_nav w-full h-20 border-b-4 border-gray-100 max-md:px-0 flex justify-between items-center px-4">
         
-        <button class="backward-btn indepth_custome_shadow max-sm:w-8 max-sm:h-8 :min-h-[32px] bg-sky-800 flex justify-center items-center gap-x-4 rounded py-3 px-6 text-lg text-white hover:bg-transparent hover:border-sky-800 hover:border hover:text-sky-800 transition-all duration-500 hover:shadow-transparent group">
-            <i class="fa-solid fa-angle-left max-md:hidden max-sm:block"></i> <span class="text-white/30 max-sm:hidden group-hover:text-sky-400"> | </span> <p class="max-sm:hidden"> Space </p>
-        </button>
+        <Nuxt-link :to="`/spaces/${route.params.space}`">
+            <button class="backward-btn indepth_custome_shadow max-sm:w-8 max-sm:h-8 :min-h-[32px] bg-sky-800 flex justify-center items-center gap-x-4 rounded py-3 px-6 text-lg text-white hover:bg-transparent hover:border-sky-800 hover:border hover:text-sky-800 transition-all duration-500 hover:shadow-transparent group">
+                <i class="fa-solid fa-angle-left max-md:hidden max-sm:block"></i> <span class="text-white/30 max-sm:hidden group-hover:text-sky-400"> | </span> <p class="max-sm:hidden"> Space </p>
+            </button>
+        </Nuxt-link>
 
         <button class="forward-btn indepth_custome_shadow max-sm:w-8 max-sm:h-8 :min-h-[32px] bg-sky-800 flex justify-center items-center gap-x-4 rounded py-3 px-6 text-lg text-white hover:bg-transparent hover:border-sky-800 hover:border hover:text-sky-800 transition-all duration-500 hover:shadow-transparent group" @click="openDialog">
             <i class="fa-solid fa-plus max-md:hidden max-sm:block"></i> <span class="text-white/30 group-hover:text-sky-400 max-sm:hidden"> | </span> <p class="max-sm:hidden"> Add Field </p>
@@ -21,32 +23,8 @@
 
         <!-- here is the left side which hold the preview and control to edit or remove the field -->
         <div class="left-side h-full w-72 min-w-[288px] max-lg:h-auto">
-            
-            <div class="elements-holder w-full py-4 flex justify-center items-start flex-col px-2 gap-y-4">
 
-                <h1 class="left-side-title text-xl font-bold text-sky-900"> All Fields ※ </h1>
-
-                <div class="element_preview bg-white w-full px-3 py-1.5 rounded flex justify-between border-2 border-gray-300 items-center text-base text-sky-900">
-                    <p> text <span class="text-gray-300"> 〜 </span> food-name  </p>
-                    <i class="fa-regular fa-trash-can flash"></i>
-                </div>
-
-                <div class="element_preview bg-white w-full px-3 py-1.5 rounded flex justify-between border-2 border-gray-300 items-center text-base text-sky-900">
-                    <p> area <span class="text-gray-300"> 〜 </span> food-description  </p>
-                    <i class="fa-regular fa-trash-can flash"></i>
-                </div>
-
-                <div class="element_preview bg-white w-full px-3 py-1.5 rounded flex justify-between border-2 border-gray-300 items-center text-base text-sky-900">
-                    <p> Date <span class="text-gray-300"> 〜 </span> Recipe-Date  </p>
-                    <i class="fa-regular fa-trash-can flash"></i>
-                </div>
-
-                <div class="element_preview bg-white w-full px-3 py-1.5 rounded flex justify-between border-2 border-gray-300 items-center text-base text-sky-900">
-                    <p> image <span class="text-gray-300"> 〜 </span> food-image  </p>
-                    <i class="fa-regular fa-trash-can flash"></i>
-                </div>
-
-            </div>
+            <EntryContentsPreviewContainer />
 
         </div>
         <!-- the left side ends here -->
@@ -65,6 +43,8 @@
 </template>
 
 <script setup lang="ts">
+
+    const route = useRoute()
 
     function openDialog() {
         const dialog = document.getElementById('settingsDialog');

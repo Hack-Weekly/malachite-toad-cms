@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@sidebase/nuxt-auth'],
   auth: {
     baseURL: 'http://localhost:3000',

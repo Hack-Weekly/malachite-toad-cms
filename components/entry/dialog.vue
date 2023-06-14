@@ -103,8 +103,6 @@
 
         }
         
-        console.log(response)
-        
     }
 
 </script>

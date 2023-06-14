@@ -24,11 +24,9 @@ export default defineEventHandler(async(event) => {
         if(entry_id) {
 
             const response = await entryCollection.updateOne(
-                { slug: body.entry_slug  }, 
-                { $push: { contents: {
-                    content: body.content,
-                } } }
-            ) 
+                { slug: body.entry_slug },
+                { $pull: { contents: { content: body.content } } }
+              );
 
             res = response;
             
@@ -40,3 +38,4 @@ export default defineEventHandler(async(event) => {
 
     return { res }
 })
+

@@ -23,14 +23,11 @@ export default defineEventHandler(async(event) => {
 
         if(entry_id) {
 
-            const response = await entryCollection.updateOne(
-                { slug: body.entry_slug  }, 
-                { $push: { contents: {
-                    content: body.content,
-                } } }
-            ) 
+            const response = await entryCollection.findOne(
+                { slug: body.entry_slug  }
+            )
 
-            res = response;
+            res = response?.contents;
             
         }
 

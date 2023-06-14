@@ -8,7 +8,7 @@
             <div class="mt-4 flex text-sm leading-6 text-gray-600">
             <label for="file-upload" class="relative cursor-pointer rounded ">
                 <span>Upload a file</span>
-                <input id="file-upload" name="file-upload" type="file" class="sr-only" />
+                <input id="file-upload" name="file-upload" type="file" class="sr-only"/>
             </label>
             <p class="pl-1">or drag and drop</p>
             </div>
@@ -49,8 +49,6 @@
             all_fields.value = fields?.res
 
         }
-        
-        console.log(response)
 
     }
 
