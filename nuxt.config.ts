@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@sidebase/nuxt-auth'],
   auth: {
-    baseURL: 'http://localhost:3000',
+    baseURL: process.env.AUTH_ORIGIN,
     
   },
   imports: {

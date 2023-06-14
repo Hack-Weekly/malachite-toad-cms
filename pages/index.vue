@@ -27,7 +27,7 @@
         </div>
 
         <div class="bottom_section w-full h-full relative -center py-16 before:w-full before:h-2/4 before:bg-sky-400 before:absolute before:top-0">
-            <img src="program_overview.png" alt="program_overview" class="w-full px-20 z-10 max-sm:px-2">
+            <img src="/program_overview.png" alt="program_overview" class="w-full px-20 z-10 max-sm:px-2">
         </div>
 
     </div>
