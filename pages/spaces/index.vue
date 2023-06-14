@@ -60,7 +60,7 @@
                     <div class="col-span-1 -center">{{ space.space.slug }}</div>
                     <span class="col-span-1 -center text-sm text-gray-400">{{formattedDate(space.space.updated_at)}}</span>
                     <div class="col-span-1 flex -center">
-                        <svg @click="openDialog('settingsDialog')" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                        <svg @click="openDialog('settingsDialog')" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 cursor-pointer hover:opacity-80 hover:transition-opacity hover:ease-in hover:duration-150">
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
