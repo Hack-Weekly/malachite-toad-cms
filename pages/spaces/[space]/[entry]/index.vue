@@ -64,6 +64,17 @@
 
 </template>
 
+<script setup lang="ts">
+
+    function openDialog() {
+        const dialog = document.getElementById('settingsDialog');
+        const dialogElement = dialog as HTMLDialogElement;
+        dialogElement.showModal();
+    }
+
+</script>
+
+
 <style scoped>
 
     .indepth_custome_shadow {

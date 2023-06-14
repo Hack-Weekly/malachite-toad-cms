@@ -76,6 +76,7 @@
     }
 
     async function onSubmit() {
+
         const response = await $fetch('/api/entry/create_field', {
             method: 'post',
             body: {
@@ -84,13 +85,26 @@
                 field_name: field_name.value
             }
         })
-        console.log(response)
-    }
 
-    function openDialog() {
-        const dialog = document.getElementById('settingsDialog');
-        const dialogElement = dialog as HTMLDialogElement;
-        dialogElement.showModal();
+        if(response) {
+            
+            let all_fields = useState('fields')
+
+            let fields: any = await $fetch('/api/entry/get_all_fields', {
+                method: 'post',
+                body: {
+                    entry_slug: route.params.entry,
+                }
+            })
+
+            all_fields.value = fields?.res
+
+            closeDialog()
+
+        }
+        
+        console.log(response)
+        
     }
 
 </script>
