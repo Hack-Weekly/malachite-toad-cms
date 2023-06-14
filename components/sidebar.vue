@@ -70,7 +70,7 @@
                     <p> {{ data.user.name }} </p>
                     <p> {{ data.user.email }} </p>
                 </div>
-                <button class="logout text-center text-xs max-sm:hidden">
+                <button @click="logout()" class="logout text-center text-xs max-sm:hidden">
                     logout
                 </button>
 
@@ -85,9 +85,14 @@
 
 const {
   data,
+  signOut
 } = useAuth()
 
-console.log(data.value)
+async function logout() {
+  await signOut({callbackUrl: '/'})
+}
+
+
 
 </script>
 
