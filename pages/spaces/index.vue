@@ -52,9 +52,9 @@
                     </div>
 
                     <div class="col-span-1 flex -space-x-1.5 -center">
-                        <div class="flex" v-for="user in space.users" :key="user._id">
+                        <NuxtLink :to="{path: `spaces/${space.space.slug}/collaborators`, query: { spaceId: space.space._id} }" class="flex" v-for="user in space.users" :key="user._id">
                             <img :src="user.picture" :title="user.username" alt="user_pfp" class="w-8 h-8 rounded-full">
-                        </div>
+                        </NuxtLink>
                     </div>
 
                     <div class="col-span-1 -center">{{ space.space.slug }}</div>

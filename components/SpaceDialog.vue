@@ -75,7 +75,6 @@
 
 
     const onSubmit = async(space_id: any) => {
-        console.log(props.space._id)
 
         const { data: response } = await useFetch('/api/space/delete', {
             onRequest({ request, options, error}) {
@@ -99,6 +98,5 @@
             },
         })
 
-        console.log(response.value)
     }
 </script>
