@@ -6,19 +6,23 @@ export default class Validator {
             return { message:"Fields space_id and api_key missing", code: 400 };
         }
 
+        if(query.length > 2) {
+            return { message: "Too many parameters", statusMessage: 'Bad request', code: 400 };
+        }
+
         if(!query.space_id && query.api_key) {
-            return {message: "Field space_id missing", code: 400};
+            return {message: "Field space_id missing", statusMessage: 'Bad request', code: 400};
         }
 
         if(query.space_id && !query.api_key) {
-            return { message: "Field api_key missing", code: 400 };
+            return { message: "Field api_key missing", statusMessage: 'Bad request', code: 400 };
         }
 
         if(!ObjectId.isValid(query.space_id)) {
-            return { message: "Field space_id is not valid", code: 400 };
+            return { message: "Field space_id is not valid", statusMessage: 'Bad request', code: 400 };
         }
 
-        return { message: "Validated", code: 200 };
+        return { message: "Validated", statusMessage: 'Validated', code: 200 };
     }
 
     async validateApiKey(id: any, key: any, uri: string) {
