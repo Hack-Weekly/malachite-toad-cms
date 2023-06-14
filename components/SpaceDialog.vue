@@ -32,6 +32,10 @@
             </template>
         </div>
         <div class="relative max-w-md lg:max-w-lg lg:ml-16 mt-12 px-3 flex flex-col">
+            <label class="text-sky-800 text-sm font-semibold">Space ID</label>
+            <input type="text" v-model="props.space._id" id="api-key" readonly class="bg-gray-200 rounded-lg outline-none ring-0 focus:ring-0 px-4 py-2.5 w-full block transition ease-linear delay-50 mt-1" />
+        </div>
+        <div class="relative max-w-md lg:max-w-lg lg:ml-16 mt-12 px-3 flex flex-col">
             <span class="text-sky-800 text-sm font-semibold">DANGER ZONE</span>
             <form method="POST" @submit.prevent="onSubmit(props.space._id)">
                 <button type="submit" class="bg-red-500 text-sm font-semibold w-32 text-white py-2 px-3 rounded mt-3">Delete space</button>
@@ -75,7 +79,6 @@
 
 
     const onSubmit = async(space_id: any) => {
-        console.log(props.space._id)
 
         const { data: response } = await useFetch('/api/space/delete', {
             onRequest({ request, options, error}) {
@@ -99,6 +102,5 @@
             },
         })
 
-        console.log(response.value)
     }
 </script>

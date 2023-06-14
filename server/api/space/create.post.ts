@@ -51,7 +51,7 @@ export default defineEventHandler(async(event) => {
         const response = await spaceUsersCollection.insertOne({
             space_id: spaceId,
             user_id: userId,
-            role: 'admin'
+            role: 'owner'
         });
 
         res = response;
