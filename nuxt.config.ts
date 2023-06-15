@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@sidebase/nuxt-auth'],
   auth: {
-    baseURL: process.env.AUTH_ORIGIN,
+    baseURL: process.env.AUTH_ORIGIN || '',
     
   },
   imports: {
@@ -42,6 +42,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     mongodb_uri: process.env.MONGODB_URI,
+    auth_origin: process.env.AUTH_ORIGIN,
 
     public: {
       apiBase: '/api', // can be overridden by NUXT_PUBLIC_API_BASE environment variable
