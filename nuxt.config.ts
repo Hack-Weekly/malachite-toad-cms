@@ -6,6 +6,14 @@ export default defineNuxtConfig({
     baseURL: process.env.AUTH_ORIGIN || 'https://malachite-toad-cms.vercel.app/api/auth',
     
   },
+  experimental: {
+    crossOriginPrefetch: true,
+  },
+  nitro: {
+    routeRules: {
+      '/api/spaces/**': { cors: true, headers: { 'access-control-allow-methods': 'GET' } }
+    },
+  },
   imports: {
     dirs: [
       // Scan top-level modules
