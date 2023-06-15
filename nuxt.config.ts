@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@sidebase/nuxt-auth'],
   auth: {
-    baseURL: process.env.AUTH_ORIGIN || '',
+    baseURL: process.env.AUTH_ORIGIN || 'https://malachite-toad-cms.vercel.app/api/auth',
     
   },
   imports: {
