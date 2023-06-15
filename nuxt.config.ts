@@ -3,8 +3,23 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@sidebase/nuxt-auth'],
   auth: {
-    baseURL: process.env.AUTH_ORIGIN || '',
+    baseURL: process.env.AUTH_ORIGIN || 'https://malachite-toad-cms.vercel.app/api/auth',
     
+  },
+  vite: {
+    server: {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      }
+    }
+  },
+  experimental: {
+    crossOriginPrefetch: true,
+  },
+  nitro: {
+    routeRules: {
+      '/api/spaces/**': { cors: true, headers: { 'access-control-allow-methods': 'GET', 'Access-Control-Allow-Origin': "*" } }
+    },
   },
   imports: {
     dirs: [
