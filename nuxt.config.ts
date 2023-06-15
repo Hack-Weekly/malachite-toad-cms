@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     routeRules: {
-      '/api/spaces/**': { cors: true, headers: { 'access-control-allow-methods': 'GET' } }
+      '/api/spaces/**': { cors: true, headers: { 'access-control-allow-methods': 'GET', 'Access-Control-Allow-Origin': "*" } }
     },
   },
   imports: {
