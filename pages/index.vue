@@ -59,6 +59,4 @@ definePageMeta({
   layout: "empty",
 });
 
-
-
 </script>
