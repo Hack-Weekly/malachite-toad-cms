@@ -43,6 +43,9 @@
 
 <script setup lang="ts">
 
+    import { toast } from 'vue3-toastify';
+    import 'vue3-toastify/dist/index.css';
+
     const route = useRoute()
 
     const field_type = useState('field_type', () => '')
@@ -78,12 +81,23 @@
     async function onSubmit() {
 
         const response = await $fetch('/api/entry/create_field', {
-            method: 'post',
-            body: {
-                entry_slug: route.params.entry,
-                field_type: field_type.value,
-                field_name: field_name.value
-            }
+            onRequest({ request, options, error}) {
+                options.method = 'POST'
+                options.headers = { "Content-type": "application/json" };
+                options.body = {
+                    entry_slug: route.params.entry,
+                    field_type: field_type.value,
+                    field_name: field_name.value
+            }},
+            onResponse({ response, options }) {
+                toast.success('Field created successfully')
+            },
+            onRequestError({request, options, error}) {
+                toast.error('Something went wrong. Please try again later')
+            },
+            onResponseError(context) {
+                toast.error('Something went wrong. Please try again later')
+            },
         })
 
         if(response) {

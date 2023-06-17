@@ -1,13 +1,16 @@
 <template>
     
     <div class="mt-7">
-        <label for="dateofbirth" class="block text-xl font-medium leading-6 text-sky-900"> {{ field.field_name }} <span @click="remove_field"> ※ </span> </label>
-        <input type="date" name="dateofbirth" id="dateofbirth" class="mt-3 block w-full rounded-md border-2 py-1.5 text-gray-900 border-gray-300 outline-none px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6" v-model="inputValue" @input="$emit('input_emit', inputValue)">
+        <label for="dateofbirth" class="block text-xl font-medium leading-6 text-sky-900"> {{ field.field_name }} <i class="fa-regular fa-trash-can flash" @click="remove_field"></i> </label>
+        <input type="date" name="dateofbirth" id="date-fields" class="date-fields mt-3 block w-full rounded-md border-2 py-1.5 text-gray-900 border-gray-300 outline-none px-3 placeholder:text-gray-400 sm:text-sm sm:leading-6" v-model="inputValue" @input="$emit('input_emit', inputValue)">
     </div>
 
 </template>
 
 <script setup lang="ts">
+
+    import { toast } from 'vue3-toastify';
+    import 'vue3-toastify/dist/index.css';
 
     const props = defineProps(['field'])
 
@@ -18,11 +21,22 @@
     async function remove_field() {
 
         const response = await $fetch('/api/entry/remove_field', {
-            method: 'post',
-            body: {
-                entry_slug: route.params.entry,
-                field_name: props.field.field_name
-            }
+            onRequest({ request, options, error}) {
+                options.method = 'POST'
+                options.headers = { "Content-type": "application/json" };
+                options.body = {
+                    entry_slug: route.params.entry,
+                    field_name: props.field.field_name
+            }},
+            onResponse({ response, options }) {
+                toast.success('Field removed successfully')
+            },
+            onRequestError({request, options, error}) {
+                toast.error('Something went wrong. Please try again later')
+            },
+            onResponseError(context) {
+                toast.error('Something went wrong. Please try again later')
+            },
         })
 
         if(response) {

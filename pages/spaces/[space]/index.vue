@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="col-span-1 flex justify-end">
-                        <button class="py-2 px-8 rounded bg-red-300 border-2 border-gray-200 text-white" @click="remove_entry(entry.slug)"> Remove </button>
+                        <button class="py-2 px-8 rounded bg-red-700 border-2 border-gray-200 text-white" @click="remove_entry(entry.slug)"> Remove </button>
                     </div>
 
                 </div>
@@ -159,10 +159,21 @@
     async function remove_entry(slug: any) {
 
         const response = await $fetch('/api/entry/remove_entry', {
-            method: 'post',
-            body: {
-                entry_slug: slug,
-            }
+            onRequest({ request, options, error}) {
+                options.method = 'POST'
+                options.headers = { "Content-type": "application/json" };
+                options.body = {
+                    entry_slug: slug,
+            }},
+            onResponse({ response, options }) {
+                toast.success('Entry removed successfully')
+            },
+            onRequestError({request, options, error}) {
+                toast.error('Something went wrong. Please try again later')
+            },
+            onResponseError(context) {
+                toast.error('Something went wrong. Please try again later')
+            },
         })
 
         getSpaces()
