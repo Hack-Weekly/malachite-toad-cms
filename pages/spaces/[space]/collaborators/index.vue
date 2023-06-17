@@ -41,7 +41,6 @@
                             <span class="text-red-500 text-sm font-semibold" v-if="errorEmail">{{ errorEmail }}</span>
                         </div>
                         <button type="submit" class="bg-sky-800 text-sm font-semibold w-32 text-white py-2 px-3 rounded mt-3">Add user</button>
-                        {{ values }}
                     </Form>
                 </div>
             </dialog>

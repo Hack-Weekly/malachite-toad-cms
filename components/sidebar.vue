@@ -14,7 +14,7 @@
                 <div class="sub_ul">
                     <ul class="">
                         <li class="py-4 px-2 text-sky-800 hover:opacity-80 hover:transition-opacity hover:ease-in hover:duration-150">
-                            <NuxtLink to="/all_apis" target="_blank" class="flex justify-start gap-x-3 items-center">
+                            <NuxtLink to="https://toad-cms-docs.vercel.app/" target="_blank" class="flex justify-start gap-x-3 items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                     <path d="M10 12h-1v5h1" />

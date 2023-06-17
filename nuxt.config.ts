@@ -3,8 +3,23 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@sidebase/nuxt-auth'],
   auth: {
-    baseURL: 'http://localhost:3000',
+    baseURL: process.env.AUTH_ORIGIN || 'https://malachite-toad-cms.vercel.app/api/auth',
     
+  },
+  vite: {
+    server: {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      }
+    }
+  },
+  experimental: {
+    crossOriginPrefetch: true,
+  },
+  nitro: {
+    routeRules: {
+      '/api/spaces/**': { cors: true, headers: { 'access-control-allow-methods': 'GET', 'Access-Control-Allow-Origin': "*" } }
+    },
   },
   imports: {
     dirs: [
@@ -42,6 +57,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     mongodb_uri: process.env.MONGODB_URI,
+    auth_origin: process.env.AUTH_ORIGIN,
 
     public: {
       apiBase: '/api', // can be overridden by NUXT_PUBLIC_API_BASE environment variable

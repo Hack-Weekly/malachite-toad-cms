@@ -83,8 +83,6 @@
 
     let entry = ref(response.value)
 
-    console.log(entry)
-
     const formattedDate = (date: string) => entry ? new Date(date).toISOString().substring(0, 10) : date;
 
     /* Function that is emitted from the dialog component when a space is deleted */
@@ -98,7 +96,6 @@
         })
 
         entry.value = response.value
-        console.log(entry.value)
     }
 
     function openDialog(id: string) {
@@ -153,7 +150,6 @@
                     closeDialog('createEntryDialog')
                 },
             })
-        console.log(response, route.params.space)
     });
 
     async function remove_entry(slug: any) {
@@ -176,10 +172,7 @@
             },
         })
 
-        getSpaces()
-        
-        console.log(response)
-        
+        getSpaces()        
     }
 
 
